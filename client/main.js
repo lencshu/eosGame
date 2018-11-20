@@ -1,15 +1,11 @@
-import { Template } from 'meteor/templating';
-import { Mongo } from "meteor/mongo";
-import './main.html';
+import React from 'react';
+import { Meteor } from 'meteor/meteor';
+import { render } from 'react-dom';
+ import './main.html'
+import App from '../imports/ui/App.js';
+import 'semantic-ui-css/semantic.min.css';
 
-Template.body.helpers({
-  tasks: [
-    { text: "1.Meteor CrowdFunding Website Dev" },
-    { text: "2.Meteor Casino Website Dev" },
-    { text: "3.Smart Contracts Dev" },
-    { text: "4.Business logic" },
-    { text: "5.Meteor Casino App Dev" }
-  ]
+ 
+Meteor.startup(() => {
+  render(<App />, document.getElementById('App'));
 });
-
-export const Tasks = new Mongo.Collection("tasks");
