@@ -1,44 +1,74 @@
-import React from 'react'
-import { Meteor } from 'meteor/meteor';
-import { render } from 'react-dom';
-import { Button } from 'semantic-ui-react'
-import 'semantic-ui-css/semantic.min.css';
-import { Accounts } from 'meteor/std:accounts-semantic'
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-import { Accounts, STATES } from 'meteor/std:accounts-ui';
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
+import { Input, Menu, Segment } from "semantic-ui-react";
+import "semantic-ui-css/semantic.min.css";
 
-// import './main.html';
-
-class CheckSemantic extends React.Component {
+class ProfileLogin extends Component {
   render() {
+    const trigger = (
+      <span>
+        <Icon name='user' /> Hello, Bob
+      </span>
+    )
+    const options = [
+      {
+        key: 'user',
+        text: (
+          <span>
+            Signed in as <strong>Bob Smith</strong>
+          </span>
+        ),
+        disabled: true,
+      },
+      { key: 'profile', text: 'Your Profile' },
+      { key: 'stars', text: 'Your Stars' },
+      { key: 'explore', text: 'Explore' },
+      { key: 'integrations', text: 'Integrations' },
+      { key: 'help', text: 'Help' },
+      { key: 'settings', text: 'Settings' },
+      { key: 'sign-out', text: 'Sign Out' },
+    ]
+    const profileDropdown = () => <Dropdown trigger={trigger} options={options} />
     return (
-        <div>
-      <Button primary>
-      Button
-      </Button>
-    <Button primary>Primary</Button>
-    <Button secondary>Secondary</Button>
-  </div>
+      { profileDropdown }
     );
   }
 }
 
+export default class MenuExampleSecondary extends Component {
+  state = { activeItem: "home" };
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
+  render() {
+    const { activeItem } = this.state;
+    return (
+      <Segment inverted>
+        <Menu inverted pointing secondary>
+          <Menu.Item
+            name="home"
+            active={activeItem === "home"}
+            onClick={this.handleItemClick}
+          />
+          <Menu.Item
+            name="dice"
+            active={activeItem === "dice"}
+            onClick={this.handleItemClick}
+          />
+          <Menu.Item
+            name="PVP"
+            active={activeItem === "PVP"}
+            onClick={this.handleItemClick}
+          />
+          <Menu.Item
+            position="right"
+            name="ID"
+            active={activeItem === "ID"}
+            onClick={this.handleItemClick}
+          />
+        </Menu>
+      </Segment>
+    );
+  }
+}
 
-Meteor.startup( () => {
-  render(<CheckSemantic />, document.getElementById('app'));
-  render(
-    <Router history={ browserHistory }>
-      <Route path="/" component={ App }>
-        <IndexRoute component={ Index } />
-        <Route path="/signin" component={() => <Accounts.ui.LoginForm />} />
-        <Route path="/signup" component={() => <Accounts.ui.LoginForm formState={STATES.SIGN_UP} />} />
-        <Route path="/hello/:name" component={ Hello } />
-      </Route>
-      <Route path="/admin" component={ App }>
-        <IndexRoute component={ Admin } />
-      </Route>
-      <Route path="*" component={ NotFound } />
-    </Router>,
-    document.getElementById( 'react-root' )
-  );
-});
+const navElement = document.getElementById("nav");
+ReactDOM.render(<MenuExampleSecondary />, navElement);
