@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import NaviBar from "./panel/NaviBar";
-import ParticlesAnimation from "./particles/ParticlesAnimation";
+import NaviBar from "../imports/ui/panel/NaviBar";
+import ParticlesAnimation from "../imports/ui/particles/ParticlesAnimation";
 
 const rootElement = document.getElementById("navbar");
 ReactDOM.render(<NaviBar />, rootElement);
