@@ -1,5 +1,6 @@
 import Particles from "react-particles-js";
 import React, { Component } from "react";
+import GetCoin from "../GetCoin/GetCoin";
 
 export default class ParticlesAnimation extends Component {
     render() {
