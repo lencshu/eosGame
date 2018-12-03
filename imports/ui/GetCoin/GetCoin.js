@@ -24,6 +24,7 @@ export default class GetCoin extends React.Component {
                 <Button
                   color="teal"
                   content="Checkout"
+                  icon="cart"
                   onClick={this.checkout}
                 />
               }
