@@ -10,12 +10,16 @@
   "dependencies": {
     "@babel/runtime": "^7.0.0",
     "bcrypt": "^3.0.2",
+    "chart.js": "^2.7.3",
     "meteor-node-stubs": "^0.4.1",
     "react": "^16.6.3",
     "react-addons-pure-render-mixin": "^15.6.2",
+    "react-chartjs-2": "^2.7.4",
+    "react-datepicker": "^2.0.0",
     "react-dom": "^16.6.3",
     "react-particles-js": "^2.4.2",
     "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.83.0"
   },
@@ -27,14 +31,13 @@
     "testModule": "imports/test/main.test.js"
   },
   "devDependencies": {
-    "autoprefixer": "^6.3.1",
-    "postcss": "^6.0.22",
-    "postcss-load-config": "^1.2.0"
+    "autoprefixer": "^9.4.2"
   },
   "postcss": {
     "plugins": {
       "autoprefixer": {
-        "browsers": [
+        "browserslist": [
+          "> 1%",
           "last 2 versions"
         ]
       }

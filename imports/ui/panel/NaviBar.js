@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import {
     Menu,
-    Segment
+    Segment,
+    Button
 } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 
@@ -23,7 +24,7 @@ export default class NaviBar extends Component {
                         name="home"
                         active={activeItem === "home"}
                         onClick={this.handleItemClick}
-                    />
+                    /> 
                     <Menu.Item
                         name="dice"
                         active={activeItem === "dice"}
@@ -34,8 +35,17 @@ export default class NaviBar extends Component {
                         active={activeItem === "PVP"}
                         onClick={this.handleItemClick}
                     />
+                    <Menu.Menu>
+                    <Button 
+                        circular color='twitter' icon='paper plane' 
+                    />
+                    <Button 
+                        circular color='twitter' icon='twitter' 
+                    />
+                    </Menu.Menu>  
                     <Menu.Item position="right" />
                     {signInState ? <ProfileSignIn togglesignInState={() => this.togglesignInState} /> : <ProfileSignUp togglesignInState={() => this.togglesignInState}/>}
+                               
                 </Menu>
             </Segment>
         );
