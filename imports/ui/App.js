@@ -1,7 +1,6 @@
 import React, { Component } from 'react'; 
-import Kyc from '../ui/Window/Kyc';
 import NaviBar from './panel/NaviBar';
-
+import Gamepage from '../ui/Dicegame/mainbody'
 
 
  
@@ -13,6 +12,7 @@ import NaviBar from './panel/NaviBar';
     return (
       <div className='App'>
         <NaviBar/>
+        <Gamepage />
 
     
        
