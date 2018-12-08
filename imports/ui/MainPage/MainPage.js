@@ -10,15 +10,6 @@ import Footer from "./Footer";
 import NaviBar from '../panel/NaviBar';
 import Subscribe from './Subscribe';
 
-const menuStyle = {
-  border: 'none',
-  borderRadius: 0,
-  boxShadow: 'none',
-  marginBottom: '1em',
-  marginTop: '4em',
-  transition: 'box-shadow 0.5s ease, padding 0.5s ease',
-}
-
 const fixedMenuStyle = {
   backgroundColor: '#fff',
   border: '1px solid #ddd',
